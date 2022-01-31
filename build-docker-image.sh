@@ -1,2 +1,2 @@
 
-docker build . --tag dynamicdevices/yocto-ci-build
+docker build . --tag dynamicdevices/yocto-ci-build:sumo
