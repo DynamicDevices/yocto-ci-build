@@ -2,10 +2,13 @@
 #docker run -it --rm -v${PWD}:/home/build/yocto yocto-ci-build
 FROM ubuntu:18.04
 
-ENV DEBIAN_FRONTENV noninteractive
+ENV DEBIAN_FRONTEND noninteractive
 ENV TERM=linux
 
 RUN apt-get update --fix-missing && apt-get -y upgrade
+
+# Install apt-utils before anything else
+RUN apt-get install apt-utils -y
 
 # Required Packages for the Host Development System
 # http://www.yoctoproject.org/docs/latest/mega-manual/mega-manual.html#required-packages-for-the-host-development-system
