@@ -26,6 +26,8 @@ RUN apt-get install -y curl dosfstools mtools parted syslinux tree zip
 
 RUN apt-get install -y nano
 
+RUN update-ca-certificates
+
 # Create a non-root user that will perform the actual build
 RUN id github 2>/dev/null || useradd --uid 1000 --create-home github
 RUN apt-get install -y sudo
