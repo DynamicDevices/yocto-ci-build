@@ -1,6 +1,6 @@
 #docker build . -t yocto-ci-build
 #docker run -it --rm -v${PWD}:/home/build/yocto yocto-ci-build
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 ENV DEBIAN_FRONTENV noninteractive
 ENV TERM=linux
@@ -11,7 +11,8 @@ RUN apt-get update --fix-missing && apt-get -y upgrade
 # http://www.yoctoproject.org/docs/latest/mega-manual/mega-manual.html#required-packages-for-the-host-development-system
 RUN apt-get install -y gawk wget git-core diffstat unzip texinfo gcc-multilib g++-multilib \
      build-essential chrpath socat cpio python python3 python3-pip python3-pexpect \
-     apt-utils tmux xz-utils debianutils iputils-ping libncurses5-dev vim
+     apt-utils tmux xz-utils debianutils iputils-ping libncurses5-dev vim \
+     liblz4-tool zstd zstd iproute2
 
 # Additional recommended packages
 RUN apt-get install -y coreutils python2.7 libsdl1.2-dev xterm libssl-dev libelf-dev \
