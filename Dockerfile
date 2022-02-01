@@ -11,7 +11,7 @@ RUN apt-get update --fix-missing && apt-get -y upgrade
 # http://www.yoctoproject.org/docs/latest/mega-manual/mega-manual.html#required-packages-for-the-host-development-system
 RUN apt-get install -y gawk wget git-core diffstat unzip texinfo gcc-multilib g++-multilib \
      build-essential chrpath socat cpio python python3 python3-pip python3-pexpect \
-     apt-utils tmux xz-utils debianutils iputils-ping libncurses5-dev vim libunwind8
+     apt-utils tmux xz-utils debianutils iputils-ping libncurses5-dev vim libunwind8 libcurl3-dev vim
 
 # Additional recommended packages
 RUN apt-get install -y coreutils python2.7 libsdl1.2-dev xterm libssl-dev libelf-dev \
