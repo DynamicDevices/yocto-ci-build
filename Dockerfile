@@ -7,6 +7,8 @@ ENV TERM=linux
 
 RUN apt-get update --fix-missing && apt-get -y upgrade
 
+RUN apt-get install -y apt-utils
+
 # Required Packages for the Host Development System
 # http://www.yoctoproject.org/docs/latest/mega-manual/mega-manual.html#required-packages-for-the-host-development-system
 RUN apt-get install -y gawk wget git-core diffstat unzip texinfo gcc-multilib g++-multilib \
