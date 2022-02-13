@@ -11,7 +11,7 @@ RUN apt-get install -y apt-utils
 
 # Required Packages for the Host Development System
 # http://www.yoctoproject.org/docs/latest/mega-manual/mega-manual.html#required-packages-for-the-host-development-system
-RUN apt-get install -y gawk wget git-core diffstat unzip texinfo gcc-multilib g++-multilib \
+RUN apt-get install -y gawk wget git-core diffstat unzip texinfo gcc g++ \
      build-essential chrpath socat cpio python python3 python3-pip python3-pexpect \
      apt-utils tmux xz-utils debianutils iputils-ping libncurses5-dev vim libunwind8 libcurl3-dev vim \
      liblz4-tool zstd zstd iproute2 iptables
@@ -21,7 +21,7 @@ RUN apt-get install -y coreutils python2.7 libsdl1.2-dev xterm libssl-dev libelf
      android-tools-fsutils ca-certificates repo whiptail # openjdk-11-jre 
 
 # Additional host packages required by poky/scripts/wic
-RUN apt-get install -y curl dosfstools mtools parted syslinux tree zip
+RUN apt-get install -y curl dosfstools mtools parted tree zip
 
 RUN apt-get install -y nano
 
