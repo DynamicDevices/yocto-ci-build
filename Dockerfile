@@ -12,10 +12,13 @@ RUN apt-get install apt-utils -y
 
 # Required Packages for the Host Development System
 # http://www.yoctoproject.org/docs/latest/mega-manual/mega-manual.html#required-packages-for-the-host-development-system
-RUN apt-get install -y gawk wget git-core diffstat unzip texinfo gcc-multilib g++-multilib \
+RUN apt-get install -y gawk wget git-core diffstat unzip texinfo gcc-multilib g++-multilib gcc-8-multilib g++-8-multilib \
      build-essential chrpath socat cpio python python3 python3-pip python3-pexpect \
      apt-utils tmux xz-utils debianutils iputils-ping libncurses5-dev vim \
      liblz4-tool zstd zstd iproute2 iptables
+
+# Ensure we are using gcc-8
+RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 60 --slave /usr/bin/g++ g++ /usr/bin/g++-8
 
 # Additional recommended packages
 RUN apt-get install -y coreutils python2.7 libsdl1.2-dev xterm libssl-dev libelf-dev \
