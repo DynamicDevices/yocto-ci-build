@@ -1,6 +1,6 @@
 #docker build . -t yocto-ci-build
 #docker run -it --rm -v${PWD}:/home/build/yocto yocto-ci-build
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV TERM=linux
@@ -8,7 +8,9 @@ ENV TERM=linux
 RUN apt-get update --fix-missing && apt-get -y upgrade
 
 # Install apt-utils before anything else
-RUN apt-get install apt-utils -y
+RUN apt-get install apt-utils software-properties-common -y
+
+RUN add-apt-repository universe && apt-get update --fix-missing && apt-get -y upgrade
 
 # Required Packages for the Host Development System
 # http://www.yoctoproject.org/docs/latest/mega-manual/mega-manual.html#required-packages-for-the-host-development-system
@@ -22,7 +24,7 @@ RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 60 --slave /us
 
 # Additional recommended packages
 RUN apt-get install -y coreutils python2.7 libsdl1.2-dev xterm libssl-dev libelf-dev \
-     android-tools-fsutils ca-certificates repo whiptail # openjdk-11-jre 
+     ca-certificates whiptail # openjdk-11-jre 
 
 # Additional host packages required by poky/scripts/wic
 RUN apt-get install -y curl dosfstools mtools parted syslinux tree zip
