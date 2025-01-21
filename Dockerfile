@@ -17,7 +17,9 @@ RUN add-apt-repository universe && apt-get update --fix-missing && apt-get -y up
 RUN apt-get install -y gawk wget git-core diffstat unzip texinfo gcc-multilib g++-multilib gcc-multilib g++-multilib \
      build-essential chrpath socat cpio python3 python3-pip python3-pexpect \
      apt-utils tmux xz-utils debianutils iputils-ping libncurses5-dev vim \
-     liblz4-tool zstd zstd iproute2 iptables file
+     liblz4-tool zstd zstd iproute2 iptables file \
+     python3-git python3-jinja2 \
+     libsdl1.2-dev xterm python3-subunit mesa-common-dev
 
 # Pull in gcc-8 as it's been removed from 22.04
 RUN wget http://mirrors.kernel.org/ubuntu/pool/universe/g/gcc-8/gcc-8_8.4.0-3ubuntu2_amd64.deb
