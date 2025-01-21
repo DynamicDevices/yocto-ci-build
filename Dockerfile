@@ -21,6 +21,9 @@ RUN apt-get install -y gawk wget git-core diffstat unzip texinfo gcc-multilib g+
      python3-git python3-jinja2 \
      libsdl1.2-dev xterm python3-subunit mesa-common-dev
 
+# Install kas
+RUN pip3 install kas
+
 # Pull in gcc-8 as it's been removed from 22.04
 RUN wget http://mirrors.kernel.org/ubuntu/pool/universe/g/gcc-8/gcc-8_8.4.0-3ubuntu2_amd64.deb
 RUN wget http://mirrors.kernel.org/ubuntu/pool/universe/g/gcc-8/gcc-8-base_8.4.0-3ubuntu2_amd64.deb
