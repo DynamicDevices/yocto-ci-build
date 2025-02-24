@@ -51,6 +51,7 @@ RUN update-ca-certificates
 RUN id github 2>/dev/null || useradd --uid 1000 --create-home github
 RUN apt-get install -y sudo
 RUN echo "github ALL=(ALL) NOPASSWD: ALL" | tee -a /etc/sudoers
+RUN adduser github kvm
 
 # Fix error "Please use a locale setting which supports utf-8."
 # See https://wiki.yoctoproject.org/wiki/TipsAndTricks/ResolvingLocaleIssues
